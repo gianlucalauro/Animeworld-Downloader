@@ -18,7 +18,7 @@ services:
       - '5000:5000'
     environment:
       - 'ANIMEWORLD_URL=https://www.animeworld.ac'
-    image: 'ghcr.io/mainkronos/anime_downloader:latest'
+    image: 'ghcr.io/gianlucalauro/animeworld-downloader:latest'
 ```
 ### Python
 1) `pip install -r requirements.txt`
