@@ -7,6 +7,8 @@ app = Flask(__name__)
 
 app.register_blueprint(api_bp)
 
+aw.SES.base_url = os.getenv("ANIMEWORLD_URL", "https://www.animeworld.ac")
+
 @app.route("/", methods=["GET", "POST"])
 def indexer():
     results = []
