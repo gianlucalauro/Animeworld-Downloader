@@ -2,12 +2,13 @@ import os
 from flask import Flask, render_template, request
 from api import api_bp
 import animeworld as aw
+from animeworld.utility import MySession
 
 app = Flask(__name__)
 
 app.register_blueprint(api_bp)
 
-aw.SES.base_url = os.getenv("ANIMEWORLD_URL", "https://www.animeworld.ac")
+aw.SES = MySession(http2=True, base_url=os.getenv("ANIMEWORLD_URL", "https://www.animeworld.ac"), verify=False)
 
 @app.route("/", methods=["GET", "POST"])
 def indexer():
